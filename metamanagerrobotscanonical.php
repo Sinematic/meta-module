@@ -35,7 +35,7 @@ class MetaManagerRobotsCanonical extends Module
     public function hookHeader($params) {
 
         $context = Context::getContext();
-        $domain = Tools::getShopDomain(true); // http(s) + driveonly.com
+        $domain = 'https://' . Tools::getShopDomain(false); // http(s) + driveonly.com
         $requestUri = $_SERVER['REQUEST_URI'] ?? '';
         $canonicalUrl = $domain . $requestUri; // Valeur par défaut
         $metaTag = '<meta name="robots" content="index,follow">'; // Comportement par défaut : index, follow
